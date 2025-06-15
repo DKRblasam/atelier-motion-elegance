@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Scissors } from 'lucide-react';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -26,38 +26,42 @@ const Header = () => {
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
       isScrolled 
-        ? 'bg-white/95 backdrop-blur-md shadow-lg' 
+        ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-neutral-100' 
         : 'bg-transparent'
     }`}>
-      <div className="container mx-auto px-6 py-4">
+      <div className="container mx-auto px-6 py-6">
         <div className="flex items-center justify-between">
-          {/* Logo */}
-          <div className="animate-fade-in">
-            <h1 className="font-playfair text-3xl font-bold text-luxury-charcoal">
-              BA <span className="text-luxury-gold">Atelier</span>
+          {/* Logo with Icon */}
+          <div className="flex items-center space-x-3 animate-fade-in">
+            <div className="relative">
+              <Scissors className="w-8 h-8 text-accent-brown transform rotate-45" />
+              <div className="absolute -top-1 -right-1 w-3 h-3 bg-accent-brown/20 rounded-full animate-pulse"></div>
+            </div>
+            <h1 className="font-dancing text-4xl font-semibold text-warm-brown">
+              BA <span className="text-accent-brown">Atelier</span>
             </h1>
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-8 animate-slide-in-right">
+          <nav className="hidden md:flex space-x-12 animate-slide-in-right">
             {navItems.map((item, index) => (
               <a
                 key={item.name}
                 href={item.href}
-                className="text-luxury-charcoal hover:text-luxury-gold transition-colors duration-300 font-medium relative group"
+                className="text-warm-brown hover:text-accent-brown transition-all duration-300 font-medium relative group text-lg animate-fade-in-up-infinite"
                 style={{
-                  animationDelay: `${index * 0.1}s`
+                  animationDelay: `${index * 0.2}s`
                 }}
               >
                 {item.name}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-luxury-gold transition-all duration-300 group-hover:w-full"></span>
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-accent-brown transition-all duration-300 group-hover:w-full rounded-full"></span>
               </a>
             ))}
           </nav>
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden text-luxury-charcoal hover:text-luxury-gold transition-colors duration-300"
+            className="md:hidden text-warm-brown hover:text-accent-brown transition-colors duration-300"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -66,12 +70,12 @@ const Header = () => {
 
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
-          <nav className="md:hidden mt-4 pb-4 animate-fade-in-up">
+          <nav className="md:hidden mt-6 pb-6 border-t border-neutral-200 pt-6 animate-fade-in-up">
             {navItems.map((item, index) => (
               <a
                 key={item.name}
                 href={item.href}
-                className="block py-2 text-luxury-charcoal hover:text-luxury-gold transition-colors duration-300"
+                className="block py-3 text-warm-brown hover:text-accent-brown transition-colors duration-300 text-lg"
                 onClick={() => setIsMobileMenuOpen(false)}
                 style={{
                   animationDelay: `${index * 0.1}s`

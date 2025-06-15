@@ -63,13 +63,29 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				'luxury-cream': '#F8F6F0',
-				'luxury-gold': '#D4AF37',
-				'luxury-charcoal': '#2C2C2C',
-				'luxury-pearl': '#FAFAFA'
+				// Nuevos colores minimalistas
+				'warm-cream': '#FCFCFA',
+				'soft-beige': '#F8F5F0',
+				'warm-brown': '#393434',
+				'accent-brown': '#C48F7C',
+				'soft-gray': '#F5F3F0',
+				// Colores de galería
+				'gallery-pink': '#FFB6C1',
+				'gallery-rose': '#FFC0CB',
+				'gallery-magenta': '#DA70D6',
+				'gallery-orchid': '#DDA0DD',
+				'gallery-lavender': '#B19CD9',
+				'gallery-plum': '#C8A2C8',
+				'gallery-purple': '#9370DB',
+				'gallery-violet': '#BA55D3',
+				'gallery-mint': '#98FB98',
+				'gallery-light-green': '#90EE90',
+				'gallery-sky': '#87CEEB',
+				'gallery-light-blue': '#ADD8E6'
 			},
 			fontFamily: {
-				'playfair': ['Playfair Display', 'serif'],
+				'dancing': ['Dancing Script', 'cursive'],
+				'inter': ['Inter', 'sans-serif'],
 				'poppins': ['Poppins', 'sans-serif']
 			},
 			borderRadius: {
@@ -92,6 +108,20 @@ export default {
 					},
 					to: {
 						height: '0'
+					}
+				},
+				'fade-in-up-infinite': {
+					'0%': {
+						opacity: '0',
+						transform: 'translateY(40px)'
+					},
+					'50%': {
+						opacity: '1',
+						transform: 'translateY(0)'
+					},
+					'100%': {
+						opacity: '0',
+						transform: 'translateY(-40px)'
 					}
 				},
 				'fade-in': {
@@ -154,7 +184,7 @@ export default {
 						transform: 'translateY(0) scale(1)'
 					}
 				},
-				'luxury-float': {
+				'float': {
 					'0%, 100%': {
 						transform: 'translateY(0px)'
 					},
@@ -174,13 +204,14 @@ export default {
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
+				'fade-in-up-infinite': 'fade-in-up-infinite 4s ease-in-out infinite',
 				'fade-in': 'fade-in 0.8s ease-out',
 				'fade-in-up': 'fade-in-up 0.8s ease-out',
 				'slide-in-left': 'slide-in-left 0.8s ease-out',
 				'slide-in-right': 'slide-in-right 0.8s ease-out',
 				'scale-in': 'scale-in 0.6s ease-out',
 				'elegant-fade': 'elegant-fade 1s ease-out',
-				'luxury-float': 'luxury-float 3s ease-in-out infinite',
+				'float': 'float 3s ease-in-out infinite',
 				'shimmer': 'shimmer 2s linear infinite'
 			}
 		}
