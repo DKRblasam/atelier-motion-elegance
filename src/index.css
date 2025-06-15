@@ -98,6 +98,19 @@
   }
 }
 
+/* Animación de movimiento vertical infinito */
+@keyframes float-up-infinite {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
 /* Typewriter Animation */
 @keyframes typewriter {
   from {

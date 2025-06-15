@@ -23,19 +23,6 @@ const Header = () => {
     { name: 'Contacto', href: '#contact' }
   ];
 
-  const TypewriterText = ({ text, delay = 0 }: { text: string; delay?: number }) => {
-    return (
-      <span 
-        className="inline-block"
-        style={{
-          animation: `typewriter ${text.length * 0.1}s steps(${text.length}) ${delay}s both`
-        }}
-      >
-        {text}
-      </span>
-    );
-  };
-
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
       isScrolled 
@@ -57,20 +44,13 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-12 animate-slide-in-right">
-            {navItems.map((item, index) => (
+            {navItems.map((item) => (
               <a
                 key={item.name}
                 href={item.href}
-                className="text-warm-brown hover:text-accent-brown transition-all duration-300 font-medium relative group text-lg overflow-hidden"
-                onMouseEnter={(e) => {
-                  const target = e.currentTarget;
-                  target.style.animation = 'none';
-                  setTimeout(() => {
-                    target.style.animation = `typewriter ${item.name.length * 0.1}s steps(${item.name.length}) both`;
-                  }, 10);
-                }}
+                className="text-warm-brown hover:text-accent-brown transition-all duration-300 font-medium relative group text-lg hover:animate-[float-up-infinite_1.5s_ease-in-out_infinite]"
               >
-                <TypewriterText text={item.name} delay={index * 0.2} />
+                {item.name}
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-accent-brown transition-all duration-300 group-hover:w-full rounded-full"></span>
               </a>
             ))}
@@ -88,21 +68,14 @@ const Header = () => {
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
           <nav className="md:hidden mt-6 pb-6 border-t border-neutral-200 pt-6 animate-fade-in-up">
-            {navItems.map((item, index) => (
+            {navItems.map((item) => (
               <a
                 key={item.name}
                 href={item.href}
-                className="block py-3 text-warm-brown hover:text-accent-brown transition-colors duration-300 text-lg overflow-hidden"
+                className="block py-3 text-warm-brown hover:text-accent-brown transition-colors duration-300 text-lg hover:animate-[float-up-infinite_1.5s_ease-in-out_infinite]"
                 onClick={() => setIsMobileMenuOpen(false)}
-                onMouseEnter={(e) => {
-                  const target = e.currentTarget;
-                  target.style.animation = 'none';
-                  setTimeout(() => {
-                    target.style.animation = `typewriter ${item.name.length * 0.1}s steps(${item.name.length}) both`;
-                  }, 10);
-                }}
               >
-                <TypewriterText text={item.name} delay={index * 0.1} />
+                {item.name}
               </a>
             ))}
           </nav>
