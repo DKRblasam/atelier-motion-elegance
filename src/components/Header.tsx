@@ -48,10 +48,7 @@ const Header = () => {
               <a
                 key={item.name}
                 href={item.href}
-                className="text-warm-brown hover:text-accent-brown transition-all duration-300 font-medium relative group text-lg animate-fade-in-up-infinite"
-                style={{
-                  animationDelay: `${index * 0.2}s`
-                }}
+                className="text-warm-brown hover:text-accent-brown transition-all duration-300 font-medium relative group text-lg hover:animate-fade-in-up"
               >
                 {item.name}
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-accent-brown transition-all duration-300 group-hover:w-full rounded-full"></span>
@@ -75,11 +72,8 @@ const Header = () => {
               <a
                 key={item.name}
                 href={item.href}
-                className="block py-3 text-warm-brown hover:text-accent-brown transition-colors duration-300 text-lg"
+                className="block py-3 text-warm-brown hover:text-accent-brown transition-colors duration-300 text-lg hover:animate-fade-in-up"
                 onClick={() => setIsMobileMenuOpen(false)}
-                style={{
-                  animationDelay: `${index * 0.1}s`
-                }}
               >
                 {item.name}
               </a>
