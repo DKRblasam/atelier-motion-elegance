@@ -23,6 +23,19 @@ const Header = () => {
     { name: 'Contacto', href: '#contact' }
   ];
 
+  const TypewriterText = ({ text, delay = 0 }: { text: string; delay?: number }) => {
+    return (
+      <span 
+        className="inline-block"
+        style={{
+          animation: `typewriter ${text.length * 0.1}s steps(${text.length}) ${delay}s both`
+        }}
+      >
+        {text}
+      </span>
+    );
+  };
+
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
       isScrolled 
@@ -48,9 +61,16 @@ const Header = () => {
               <a
                 key={item.name}
                 href={item.href}
-                className="text-warm-brown hover:text-accent-brown transition-all duration-300 font-medium relative group text-lg hover:animate-fade-in-up"
+                className="text-warm-brown hover:text-accent-brown transition-all duration-300 font-medium relative group text-lg overflow-hidden"
+                onMouseEnter={(e) => {
+                  const target = e.currentTarget;
+                  target.style.animation = 'none';
+                  setTimeout(() => {
+                    target.style.animation = `typewriter ${item.name.length * 0.1}s steps(${item.name.length}) both`;
+                  }, 10);
+                }}
               >
-                {item.name}
+                <TypewriterText text={item.name} delay={index * 0.2} />
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-accent-brown transition-all duration-300 group-hover:w-full rounded-full"></span>
               </a>
             ))}
@@ -72,10 +92,17 @@ const Header = () => {
               <a
                 key={item.name}
                 href={item.href}
-                className="block py-3 text-warm-brown hover:text-accent-brown transition-colors duration-300 text-lg hover:animate-fade-in-up"
+                className="block py-3 text-warm-brown hover:text-accent-brown transition-colors duration-300 text-lg overflow-hidden"
                 onClick={() => setIsMobileMenuOpen(false)}
+                onMouseEnter={(e) => {
+                  const target = e.currentTarget;
+                  target.style.animation = 'none';
+                  setTimeout(() => {
+                    target.style.animation = `typewriter ${item.name.length * 0.1}s steps(${item.name.length}) both`;
+                  }, 10);
+                }}
               >
-                {item.name}
+                <TypewriterText text={item.name} delay={index * 0.1} />
               </a>
             ))}
           </nav>

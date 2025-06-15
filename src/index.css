@@ -98,6 +98,25 @@
   }
 }
 
+/* Typewriter Animation */
+@keyframes typewriter {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink-caret {
+  from, to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: currentColor;
+  }
+}
+
 @layer components {
   .warm-gradient {
     background: linear-gradient(135deg, #FCFCFA 0%, #F8F5F0 50%, #F5F3F0 100%);
