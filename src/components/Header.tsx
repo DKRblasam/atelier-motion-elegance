@@ -1,35 +1,33 @@
-
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Scissors } from 'lucide-react';
-
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
-
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  const navItems = [
-    { name: 'Inicio', href: '#home' },
-    { name: 'Servicios', href: '#services' },
-    { name: 'Galería', href: '#gallery' },
-    { name: 'Sobre Nosotros', href: '#about' },
-    { name: 'Contacto', href: '#contact' }
-  ];
-
-  return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-      isScrolled 
-        ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-neutral-100' 
-        : 'bg-transparent'
-    }`}>
-      <div className="container mx-auto px-6 py-6">
+  const navItems = [{
+    name: 'Inicio',
+    href: '#home'
+  }, {
+    name: 'Servicios',
+    href: '#services'
+  }, {
+    name: 'Galería',
+    href: '#gallery'
+  }, {
+    name: 'Sobre Nosotros',
+    href: '#about'
+  }, {
+    name: 'Contacto',
+    href: '#contact'
+  }];
+  return <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-neutral-100' : 'bg-transparent'}`}>
+      <div className="container px-6 py-6 mx-0 my-[14px]">
         <div className="flex items-center justify-between">
           {/* Logo with Icon */}
           <div className="flex items-center space-x-3 animate-fade-in">
@@ -44,45 +42,25 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-12 animate-slide-in-right">
-            {navItems.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                className="text-warm-brown hover:text-accent-brown transition-all duration-300 font-medium relative group text-lg hover:animate-[float-up-infinite_1.5s_ease-in-out_infinite]"
-              >
+            {navItems.map(item => <a key={item.name} href={item.href} className="text-warm-brown hover:text-accent-brown transition-all duration-300 font-medium relative group text-lg hover:animate-[float-up-infinite_1.5s_ease-in-out_infinite]">
                 {item.name}
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-accent-brown transition-all duration-300 group-hover:w-full rounded-full"></span>
-              </a>
-            ))}
+              </a>)}
           </nav>
 
           {/* Mobile Menu Button */}
-          <button
-            className="md:hidden text-warm-brown hover:text-accent-brown transition-colors duration-300"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          >
+          <button className="md:hidden text-warm-brown hover:text-accent-brown transition-colors duration-300" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
 
         {/* Mobile Navigation */}
-        {isMobileMenuOpen && (
-          <nav className="md:hidden mt-6 pb-6 border-t border-neutral-200 pt-6 animate-fade-in-up">
-            {navItems.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                className="block py-3 text-warm-brown hover:text-accent-brown transition-colors duration-300 text-lg hover:animate-[float-up-infinite_1.5s_ease-in-out_infinite]"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
+        {isMobileMenuOpen && <nav className="md:hidden mt-6 pb-6 border-t border-neutral-200 pt-6 animate-fade-in-up">
+            {navItems.map(item => <a key={item.name} href={item.href} className="block py-3 text-warm-brown hover:text-accent-brown transition-colors duration-300 text-lg hover:animate-[float-up-infinite_1.5s_ease-in-out_infinite]" onClick={() => setIsMobileMenuOpen(false)}>
                 {item.name}
-              </a>
-            ))}
-          </nav>
-        )}
+              </a>)}
+          </nav>}
       </div>
-    </header>
-  );
+    </header>;
 };
-
 export default Header;
