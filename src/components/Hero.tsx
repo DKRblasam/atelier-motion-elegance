@@ -14,7 +14,7 @@ const Hero = () => {
       </div>
 
       <div className="container mx-auto px-6 text-center relative z-10">
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-5xl mx-[2px]">
           {/* Main Heading */}
           <div className="mb-8 animate-elegant-fade">
             <h1 className="font-dancing text-7xl md:text-9xl font-bold text-warm-brown mb-4">
@@ -49,11 +49,11 @@ const Hero = () => {
           </div>
 
           {/* Elegant Separator */}
-          <div className="mt-20 flex items-center justify-center animate-fade-in" style={{
+          <div style={{
           animationDelay: '0.9s'
-        }}>
+        }} className="mt-20 flex items-center justify-center animate-fade-in px-0 mx-0">
             <div className="w-16 h-px bg-accent-brown/30"></div>
-            <div className="mx-6 w-3 h-3 bg-accent-brown rounded-full"></div>
+            <div className="w-3 h-3 bg-accent-brown rounded-full mx-[27px]"></div>
             <div className="w-16 h-px bg-accent-brown/30"></div>
           </div>
         </div>
