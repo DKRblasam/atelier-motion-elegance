@@ -44,11 +44,14 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-12 animate-slide-in-right">
-            {navItems.map((item) => (
+            {navItems.map((item, index) => (
               <a
                 key={item.name}
                 href={item.href}
-                className="text-warm-brown hover:text-accent-brown transition-all duration-300 font-medium relative group text-lg hover:animate-[float-up-infinite_1.5s_ease-in-out_infinite]"
+                className="text-warm-brown hover:text-accent-brown transition-all duration-300 font-medium relative group text-lg animate-fade-in-up-infinite"
+                style={{
+                  animationDelay: `${index * 0.2}s`
+                }}
               >
                 {item.name}
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-accent-brown transition-all duration-300 group-hover:w-full rounded-full"></span>
@@ -68,12 +71,15 @@ const Header = () => {
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
           <nav className="md:hidden mt-6 pb-6 border-t border-neutral-200 pt-6 animate-fade-in-up">
-            {navItems.map((item) => (
+            {navItems.map((item, index) => (
               <a
                 key={item.name}
                 href={item.href}
-                className="block py-3 text-warm-brown hover:text-accent-brown transition-colors duration-300 text-lg hover:animate-[float-up-infinite_1.5s_ease-in-out_infinite]"
+                className="block py-3 text-warm-brown hover:text-accent-brown transition-colors duration-300 text-lg"
                 onClick={() => setIsMobileMenuOpen(false)}
+                style={{
+                  animationDelay: `${index * 0.1}s`
+                }}
               >
                 {item.name}
               </a>

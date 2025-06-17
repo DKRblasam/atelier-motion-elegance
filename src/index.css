@@ -98,38 +98,6 @@
   }
 }
 
-/* Animación de movimiento vertical infinito */
-@keyframes float-up-infinite {
-  0% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-15px);
-  }
-  100% {
-    transform: translateY(0px);
-  }
-}
-
-/* Typewriter Animation */
-@keyframes typewriter {
-  from {
-    width: 0;
-  }
-  to {
-    width: 100%;
-  }
-}
-
-@keyframes blink-caret {
-  from, to {
-    border-color: transparent;
-  }
-  50% {
-    border-color: currentColor;
-  }
-}
-
 @layer components {
   .warm-gradient {
     background: linear-gradient(135deg, #FCFCFA 0%, #F8F5F0 50%, #F5F3F0 100%);
