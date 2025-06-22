@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { Phone, Mail, MapPin, Instagram, Facebook, Twitter } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -91,12 +92,15 @@ const Footer = () => {
             © 2024 BA Atelier. Todos los derechos reservados.
           </p>
           <div className="flex space-x-6 mt-4 md:mt-0">
-            <a href="#" className="text-white/60 hover:text-luxury-gold text-sm transition-colors duration-300">
+            <Link to="/terminos" className="text-white/60 hover:text-luxury-gold text-sm transition-colors duration-300">
               Términos y Condiciones
-            </a>
-            <a href="#" className="text-white/60 hover:text-luxury-gold text-sm transition-colors duration-300">
+            </Link>
+            <Link to="/privacidad" className="text-white/60 hover:text-luxury-gold text-sm transition-colors duration-300">
               Política de Privacidad
-            </a>
+            </Link>
+            <Link to="/cookies" className="text-white/60 hover:text-luxury-gold text-sm transition-colors duration-300">
+              Política de Cookies
+            </Link>
           </div>
         </div>
       </div>
